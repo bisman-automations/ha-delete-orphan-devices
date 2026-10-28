@@ -11,6 +11,7 @@ A lightweight Home Assistant custom component that adds an action/service to for
 4. Paste your GitHub repository URL and select Category **Integration**.
 5. Click **Add**, then find and install **Delete Orphan Device**.
 6. Restart Home Assistant.
+7. Go to **Settings** > **Devices & Services** > **Add Integration** and search for **Delete Orphan Device**.
 
 ## Usage
 

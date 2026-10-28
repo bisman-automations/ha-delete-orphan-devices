@@ -1,5 +1,6 @@
 import voluptuous as vol
 from homeassistant.core import HomeAssistant
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers import config_validation as cv, device_registry as dr
 
 DOMAIN = "delete_orphan"
@@ -30,4 +31,10 @@ async def async_setup(hass: HomeAssistant, config: dict):
     hass.services.async_register(
         DOMAIN, SERVICE_REMOVE, handle_remove_device, schema=SERVICE_SCHEMA
     )
+    return True
+
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+    return True
+
+async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     return True

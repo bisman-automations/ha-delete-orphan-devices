@@ -12,11 +12,6 @@ A lightweight Home Assistant custom component that adds an action/service to for
 5. Click **Add**, then find and install **Delete Orphan Device**.
 6. Restart Home Assistant.
 
-### Manual Installation:
-1. Download `delete_orphan.zip`.
-2. Extract the archive so that files sit in `/config/custom_components/delete_orphan/`.
-3. Restart Home Assistant.
-
 ## Usage
 
 1. Go to **Developer Tools** > **Actions** (or **Services**).

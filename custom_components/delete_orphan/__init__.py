@@ -18,14 +18,22 @@ async def async_setup(hass: HomeAssistant, config: dict):
         device = dev_reg.async_get(device_id)
         if device:
             dev_reg.async_remove_device(device_id)
-            hass.components.persistent_notification.create(
-                f"Successfully removed orphan device ID: {device_id}",
-                title="Orphan Device Removed"
+            await hass.services.async_call(
+                "persistent_notification",
+                "create",
+                {
+                    "message": f"Successfully removed orphan device ID: {device_id}",
+                    "title": "Orphan Device Removed",
+                },
             )
         else:
-            hass.components.persistent_notification.create(
-                f"Device ID {device_id} not found in registry.",
-                title="Device Not Found"
+            await hass.services.async_call(
+                "persistent_notification",
+                "create",
+                {
+                    "message": f"Device ID {device_id} not found in registry.",
+                    "title": "Device Not Found",
+                },
             )
 
     hass.services.async_register(

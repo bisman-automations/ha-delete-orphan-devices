@@ -15,7 +15,7 @@ async def async_setup(hass: HomeAssistant, config: dict):
         device_id = call.data.get("device_id")
         dev_reg = dr.async_get(hass)
         
-        device = dev_reg.async_get(device_id)
+        device = next((dev for dev in dev_reg.devices.values() if dev.id == device_id), None)
         if device:
             dev_reg.async_remove_device(device_id)
             await hass.services.async_call(
